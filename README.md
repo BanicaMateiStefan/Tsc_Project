@@ -1,7 +1,7 @@
 # Tsc_Project
 
 ## Descriere scurta
-    Proiectul are ca obiectiv realizarea designului hardware complet pentru un smartwatch open-source numit InkTime, incluzand schema electrica, PCB-ul, integrarea in carcasa, fisierele de productie si documentatia necesara.
+    Proiectul are ca obiectiv realizarea designului hardware complet pentru un smartwatch open-source numit InkTime, incluzand schema electrica,PCB-ul, integrarea in carcasa, fisierele de productie si documentatia necesara.
 
 ## Diagrama Bloc
 
@@ -57,3 +57,15 @@ Intrarea de alimentare este realizata prin USB-C, protejata ESD, iar energia est
 | Buttons              |
 | Up / Enter / Down    |
 +----------------------+
+<<<<<<< HEAD
+=======
+```
+## Bill of Materials (BOM)
+
+Lista de materiale se gaseste in fiserul BOM.
+
+## Descriere Hardware
+
+Sistemul hardware este construit in jurul microcontrolerului nRF52840, care reprezinta unitatea principala de procesare si coordoneaza toate modulele periferice. Acesta comunica cu afisajul E-Paper, cu accelerometrul BMA423 pentru detectia miscarii si cu driverul haptic DRV2605 pentru feedback tactil. Alimentarea este gestionata printr-un subsistem dedicat format din incarcatorul BQ25180, circuitul de monitorizare a bateriei MAX17048 si convertorul RT6160, care asigura tensiunile necesare functionarii stabile. Interactiunea cu utilizatorul se realizeaza prin cele trei butoane fizice Up, Enter si Down, iar conectivitatea si depanarea sunt sustinute prin conectorii si test pad-urile integrate pe placa.
+
+>>>>>>> 7f08af4 (readme)
