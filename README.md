@@ -64,6 +64,22 @@ Intrarea de alimentare este realizata prin USB-C, protejata ESD, iar energia est
 
 Lista de materiale se gaseste in fiserul BOM.
 
+Lista scurta cu materialele mai esentiale: 
+- U1 - nRF52840 - microcontroller principal cu BLE 5.0 - AQFN
+- IC1 - BQ25180 - incarcator Li-Ion / LiPo - DSBGA
+- U3 - MAX17048G+T10 - fuel gauge pentru baterie - TDFN
+- IC9 - RT6160 - convertor buck-boost - WL-CSP
+- IC2 - DRV2605YZFR - driver haptic - BGA
+- IC3 - BMA423 - accelerometru - LGA
+- ANT1 - 2450AT18B100E - antena 2.45 GHz - chip antenna
+- J4 - KH-TYPE-C-16P - conector USB-C
+- J1 - 503480-2400 - conector FPC pentru display
+- J2 - TC2030 - conector debug/programare
+- D3 - USBLC6-2SC6Y - protectie ESD pentru USB
+- X1 - 32 MHz crystal - oscilator principal
+- X2 - 32.768 kHz crystal - oscilator low power
+- SW_UP / SW_ENT / SW_DN - butoane pentru interfata utilizator
+
 ## Descriere Hardware
 
 Sistemul hardware este construit in jurul microcontrolerului nRF52840, care reprezinta unitatea principala de procesare si coordoneaza toate modulele periferice. Acesta comunica cu afisajul E-Paper, cu accelerometrul BMA423 pentru detectia miscarii si cu driverul haptic DRV2605 pentru feedback tactil. Alimentarea este gestionata printr-un subsistem dedicat format din incarcatorul BQ25180, circuitul de monitorizare a bateriei MAX17048 si convertorul RT6160, care asigura tensiunile necesare functionarii stabile. Interactiunea cu utilizatorul se realizeaza prin cele trei butoane fizice Up, Enter si Down, iar conectivitatea si depanarea sunt sustinute prin conectorii si test pad-urile integrate pe placa.
