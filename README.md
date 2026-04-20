@@ -84,3 +84,16 @@ Lista scurta cu materialele mai esentiale:
 
 Sistemul hardware este construit in jurul microcontrolerului nRF52840, care reprezinta unitatea principala de procesare si coordoneaza toate modulele periferice. Acesta comunica cu afisajul E-Paper, cu accelerometrul BMA423 pentru detectia miscarii si cu driverul haptic DRV2605 pentru feedback tactil. Alimentarea este gestionata printr-un subsistem dedicat format din incarcatorul BQ25180, circuitul de monitorizare a bateriei MAX17048 si convertorul RT6160, care asigura tensiunile necesare functionarii stabile. Interactiunea cu utilizatorul se realizeaza prin cele trei butoane fizice Up, Enter si Down, iar conectivitatea si depanarea sunt sustinute prin conectorii si test pad-urile integrate pe placa.
 
+## Estimare Consumului de Putere
+
+Consumul de putere este dominat de microcontrolerul nRF52840 in modurile active, in special in timpul comunicatiei BLE, unde valorile tipice sunt de ordinul catorva miliamperi. In modurile low-power, consumul poate cobori la nivel de microamperi, in functie de configurarea sistemului. Circuitele de management energetic, precum MAX17048, BQ25180 si RT6160A, sunt alese pentru aplicatii portabile cu eficienta ridicata, iar perifericele precum DRV2605 si afisajul E-Paper introduc varfuri temporare de consum in timpul vibratiei sau al refresh-ului de ecran. Per ansamblu, sistemul este optimizat pentru autonomie buna, cu consum foarte mic in standby si consum moderat in utilizare activa
+
+| State | Components active | Estimated current |
+|---|---|---:|
+| Deep sleep | nRF52840 RTC only | ~3 uA |
+| BLE advertising | MCU + BLE radio | ~3 mA avg |
+| E-paper refresh | MCU + EPD + power stage | ~30 mA peak (1-2 s) |
+| IMU active | MCU + BMA423 | ~1.5 mA |
+| Haptic feedback | MCU + DRV2605 + actuator | ~10-20 mA peak |
+| Full operation (BLE + EPD refresh + IMU) | All | ~35 mA peak |
+
