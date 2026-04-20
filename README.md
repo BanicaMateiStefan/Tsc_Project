@@ -19,39 +19,41 @@ RT610A pentru conversie DC/DC;
 MAX17048 pentru monitorizarea starii bateriei.
 
 Intrarea de alimentare este realizata prin USB-C, protejata ESD, iar energia este distribuita catre nucleul de procesare si perifericele asociate.
-                    +----------------------+
-                    |      USB-C Input      |
-                    |   + ESD Protection    |
-                    +----------+-----------+
-                               |
-                               v
-                    +----------------------+
-                    |  Power Management    |
-                    |  BQ25180 + RT610A    |
-                    +----+------------+----+
-                         |            |
-                         |            v
-                         |    +------------------+
-                         |    |   MAX17048       |
-                         |    |   Fuel Gauge     |
-                         |    +------------------+
-                         |
-                         v
-              +----------------------------------+
-              |        nRF52840 MCU              |
-              | ARM Cortex-M4F / BLE / GPIO      |
-              | SPI / I2C / control logic        |
-              +----+-----------+--------+--------+
-                   |           |        |
-                   |           |        |
-                   v           v        v
-         +-------------+  +---------+  +----------------+
-         | E-Paper EPD |  | BMA423  |  | DRV2605 Haptic |
-         | Display     |  | Accel.  |  | Driver         |
-         +-------------+  +---------+  +----------------+
-                   ^
-                   |
-           +------------------+
-           | Buttons          |
-           | Up / Enter / Down|
-           +------------------+
+## Diagrama Bloc
+
+```text
++----------------------+
+| USB-C Input          |
+| + ESD Protection     |
++----------------------+
+          |
+          v
++----------------------+
+| Power Management     |
+| BQ25180 + RT610A     |
++----------------------+
+          |
+          v
++----------------------+
+| MAX17048             |
+| Fuel Gauge           |
++----------------------+
+          |
+          v
++----------------------+
+| nRF52840 MCU         |
+| ARM Cortex-M4F       |
+| BLE / GPIO / SPI     |
++----------------------+
+      |      |      |
+      v      v      v
++---------+ +------+ +------------+
+| E-Paper | |BMA423| | DRV2605    |
+| Display | |Accel.| | Haptic     |
++---------+ +------+ +------------+
+      ^
+      |
++----------------------+
+| Buttons              |
+| Up / Enter / Down    |
++----------------------+
